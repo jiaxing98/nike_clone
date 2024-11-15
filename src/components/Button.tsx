@@ -4,6 +4,7 @@ type Props = {
   backgroundColor?: string
   textColor?: string
   borderColor?: string
+  fullWidth?: boolean
 }
 
 const Button = ({
@@ -12,10 +13,13 @@ const Button = ({
   backgroundColor,
   textColor,
   borderColor,
+  fullWidth,
 }: Props) => {
   return (
     <button
-      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none rounded-full
+      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none rounded-full ${
+        fullWidth && 'w-full'
+      }
         ${
           backgroundColor
             ? `${backgroundColor} ${textColor} ${borderColor}`
