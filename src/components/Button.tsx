@@ -1,11 +1,27 @@
 type Props = {
   label: string
   iconURL?: string
+  backgroundColor?: string
+  textColor?: string
+  borderColor?: string
 }
 
-const Button = ({ label, iconURL }: Props) => {
+const Button = ({
+  label,
+  iconURL,
+  backgroundColor,
+  textColor,
+  borderColor,
+}: Props) => {
   return (
-    <button className="flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none bg-coral-red rounded-full text-white border-coral-red">
+    <button
+      className={`flex justify-center items-center gap-2 px-7 py-4 border font-montserrat text-lg leading-none rounded-full
+        ${
+          backgroundColor
+            ? `${backgroundColor} ${textColor} ${borderColor}`
+            : 'bg-coral-red text-white border-coral-red'
+        }`}
+    >
       {label}
       {iconURL && (
         <img
